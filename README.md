@@ -1,8 +1,9 @@
-Overview
+
+**Overview**
 
 This project implements a Deep Q-Network (DQN) to solve the LunarLander-v2 environment from OpenAI's Gym. The goal is for an agent to learn how to safely land a lunar module on the moon's surface using reinforcement learning techniques.
 
-Requirements
+**Requirements**
 
 Python 3.x
 OpenAI Gym
@@ -10,7 +11,7 @@ NumPy
 Matplotlib
 Getting Started
 
-Installation:
+**Installation**:
 
 Clone this repository to your local machine.
 Install dependencies using pip install -r requirements.txt.
