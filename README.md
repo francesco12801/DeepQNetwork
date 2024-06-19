@@ -5,11 +5,13 @@ This project implements a Deep Q-Network (DQN) to solve the LunarLander-v2 envir
 
 **Requirements**
 
-Python 3.x
-OpenAI Gym
-NumPy
-Matplotlib
-Getting Started
+- Python 3.x
+- OpenAI Gym
+- NumPy
+- Matplotlib
+
+
+**Getting Started**
 
 **Installation**:
 
