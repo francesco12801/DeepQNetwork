@@ -1,14 +1,15 @@
-import gym
-from DQN import Agent
 import numpy as np
 import matplotlib.pyplot as plt
-
+import gym
+from tabular_q_learn import TabularQAgent
 if __name__ == '__main__':
     env = gym.make('LunarLander-v2')
-    agent = Agent(gamma=0.99, epsilon=1.0, batch_size=64, n_actions=4, eps_end=0.01, input_dims=[8], lr=0.001)
+    n_actions = env.action_space.n
+    state_bins = [np.linspace(-1, 1, 10) for _ in range(env.observation_space.shape[0])]  # Improve discretization
+    agent = TabularQAgent(gamma=0.99, epsilon=1.0, lr=0.001, n_actions=n_actions, state_bins=state_bins)
     scores, eps_history = [], []
-    n_games = 500
-    
+    n_games = 10000
+
     for i in range(n_games):
         score = 0
         done = False
@@ -17,11 +18,8 @@ if __name__ == '__main__':
         while not done:
             action = agent.choose_action(observation)
             observation_, reward, terminated, truncated, info = env.step(action)
-            
             done = terminated or truncated
-            
-            agent.store_transition(observation, action, reward, observation_, done)
-            agent.learn()
+            agent.learn(observation, action, reward, observation_)
             observation = observation_
             score += reward
             
