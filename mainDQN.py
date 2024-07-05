@@ -36,7 +36,7 @@ if __name__ == '__main__':
             print(f'Episode {i+1}, Score {score:.2f}, Average Score {avg_score:.2f}, Epsilon {agent.epsilon:.2f}')
     
     x = [i + 1 for i in range(n_games)]
-    filename = 'lunar_lander.png'
+    filename = 'DQN_lunar_lander.png'
     plt.figure(figsize=(10, 5))
     plt.plot(x, scores, label='Score per Episode', color='blue')
     plt.plot(x, [np.mean(scores[max(0, i-100):i+1]) for i in range(len(scores))], \

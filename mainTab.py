@@ -8,7 +8,7 @@ if __name__ == '__main__':
     state_bins = [np.linspace(-1, 1, 10) for _ in range(env.observation_space.shape[0])]  # Improve discretization
     agent = TabularQAgent(gamma=0.99, epsilon=1.0, lr=0.001, n_actions=n_actions, state_bins=state_bins)
     scores, eps_history = [], []
-    n_games = 10000
+    n_games = 50000
 
     for i in range(n_games):
         score = 0
@@ -34,7 +34,7 @@ if __name__ == '__main__':
             print(f'Episode {i+1}, Score {score:.2f}, Average Score {avg_score:.2f}, Epsilon {agent.epsilon:.2f}')
     
     x = [i + 1 for i in range(n_games)]
-    filename = 'lunar_lander.png'
+    filename = 'tabQ_lunar_lander.png'
     plt.figure(figsize=(10, 5))
     plt.plot(x, scores, label='Score per Episode', color='blue')
     plt.plot(x, [np.mean(scores[max(0, i-100):i+1]) for i in range(len(scores))], \
